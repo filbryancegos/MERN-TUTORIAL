@@ -8,11 +8,14 @@ const {
   updateEmployee, 
   deleteEmployee } = require('../controllers/employeeController')
 
-router.post('/', createEmployee)
-router.get('/', getEmployees)
-router.get('/:id', getEmployee)
-router.put('/:id', updateEmployee)
-router.delete('/:id', deleteEmployee)
+router.route('/').get(getEmployees).post(createEmployee)
+router.route('/:id').get(getEmployee).put(updateEmployee).delete(deleteEmployee)
+
+// router.post('/', createEmployee)
+// router.get('/', getEmployees)
+// router.get('/:id', getEmployee)
+// router.put('/:id', updateEmployee)
+// router.delete('/:id', deleteEmployee)
 
 // router.post('/', (req, res) => {
 //   res.status(200).json({message: 'Create Empoyees'})
